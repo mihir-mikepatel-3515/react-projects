@@ -120,7 +120,7 @@ function App() {
         {step === 1 && (
           <div className="step-container">
             <span className="emoji">💖</span>
-            <h2>Will you go on a date with me?</h2>
+            <h2>Will you go on a date with Mihir?</h2>
             <div className="btn-group">
               <button className="btn btn-yes" onClick={() => setStep(2)}>
                 Yes! 🥰
