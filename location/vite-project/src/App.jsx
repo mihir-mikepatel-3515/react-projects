@@ -21,7 +21,7 @@ function App() {
 
   // Pre-fill message and send via WhatsApp
   const sendToWhatsApp = () => {
-    const yourPhoneNumber = '919876543210'; // Replace with your phone number with country code
+    const yourPhoneNumber = '+916354442578'; // Replace with your phone number with country code
     const message = encodeURIComponent(
       `Hey! I said YES! 🥰\n\n` +
       `📍 Activity: ${selectedPlace}\n` +
