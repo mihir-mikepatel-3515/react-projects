@@ -1,8 +1,18 @@
-import React, { useContext } from 'react'
-import { FaBars } from 'react-icons/fa'
+import React from 'react';
+import { FaBars } from 'react-icons/fa';
 
 const Home = () => {
-  return <h2>home component</h2>
-}
+  return (
+    <main>
+      {/* સાઇડબાર ખોલવાનું હેમબર્ગર બટન */}
+      <button className="sidebar-toggle">
+        <FaBars />
+      </button>
 
-export default Home
+      {/* મોડલ ખોલવાનું બટન */}
+      <button className="btn">show modal</button>
+    </main>
+  );
+};
+
+export default Home;

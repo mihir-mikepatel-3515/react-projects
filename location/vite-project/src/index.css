@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #ffd1dc 0%, #ffc0cb 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+}
+
+.date-wrapper {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.emoji {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #e11d48;
+  font-weight: 700;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  min-height: 55px;
+}
+
+.btn {
+  padding: 0.75rem 1.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-yes {
+  background-color: #f43f5e;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.35);
+}
+
+.btn-yes:hover {
+  background-color: #e11d48;
+}
+
+.btn-no {
+  background-color: #e2e8f0;
+  color: #64748b;
+  transition: all 0.15s ease-out;
+  z-index: 99;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.option-btn {
+  background-color: #fff1f2;
+  border: 2px solid #fecdd3;
+  color: #9f1239;
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+  background-color: #ffe4e6;
+}
+
+.option-btn.selected {
+  background-color: #f43f5e;
+  color: #ffffff;
+  border-color: #f43f5e;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 0.85rem;
+  border: 2px solid #fecdd3;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  background-color: #fff1f2;
+  color: #881337;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  border-color: #f43f5e;
+  background-color: #ffffff;
+}
+
+.btn-next {
+  background-color: #f43f5e;
+  color: white;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-next:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.summary-box {
+  background: #fff1f2;
+  border: 1px dashed #f43f5e;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.subtext {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebc59;
+}
