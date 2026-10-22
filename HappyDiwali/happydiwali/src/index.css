@@ -1,0 +1,612 @@
+/* ==============================================================
+   DIWALI 2026 LUXURY CELEBRATION PORTAL STYLESHEET
+   ============================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0b0717;
+  color: #fce7cf;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Global App Root with Festive Ambient Glow */
+.app-root {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 0%, #2a0b36 0%, #0c0516 65%, #05020a 100%);
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= 1. HERO HEADER ================= */
+.hero-header {
+  text-align: center;
+  max-width: 820px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diya-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 0.4rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fcd34d;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.flame-icon {
+  font-size: 1.25rem;
+  animation: flicker 1.4s infinite alternate ease-in-out;
+}
+
+@keyframes flicker {
+  0% { transform: scale(0.95); opacity: 0.85; filter: drop-shadow(0 0 4px #f59e0b); }
+  100% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 14px #ef4444); }
+}
+
+.main-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  color: #ffdf7a;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 15px rgba(255, 223, 122, 0.35);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #d1b5a5;
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+/* Countdown Display Grid */
+.countdown-container {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.time-card {
+  background: rgba(30, 16, 48, 0.75);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  backdrop-filter: blur(8px);
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  min-width: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.time-val {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.time-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a78bfa;
+}
+
+/* ================= 2. TAB CONTROLS ================= */
+.tab-navigation {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  background: rgba(26, 13, 38, 0.8);
+  padding: 0.4rem;
+  border-radius: 50px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  color: #fbbf24;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+/* ================= 3. CONTENT AREA ================= */
+.content-section {
+  width: 100%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* --- Panel 1: Generator & Preview --- */
+.generator-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 840px) {
+  .generator-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-card {
+  background: rgba(26, 13, 38, 0.7);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.form-card h3 {
+  color: #fde68a;
+  font-size: 1.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: #c4b5fd;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(14, 6, 22, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #fbbf24;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.btn-copy {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fcd34d;
+}
+
+/* Luxury Greeting Card Preview */
+.preview-card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-ornament {
+  color: #fbbf24;
+  letter-spacing: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin: 0.35rem 0;
+}
+
+.live-preview-card {
+  width: 100%;
+  background: linear-gradient(145deg, #370c47, #1c0827);
+  border: 2px solid #f59e0b;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.2), inset 0 0 25px rgba(245, 158, 11, 0.1);
+}
+
+.diya-glow-container {
+  display: inline-block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px #f59e0b);
+}
+
+.festive-badge {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #fcd34d;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.card-receiver {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.card-message {
+  color: #ecd9ca;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.card-signature {
+  border-top: 1px dashed rgba(251, 191, 36, 0.3);
+  padding-top: 1.25rem;
+}
+
+.signature-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #a78bfa;
+}
+
+.card-sender {
+  font-size: 1.25rem;
+  color: #fbbf24;
+  margin-top: 0.2rem;
+}
+
+/* --- Panel 2: Cracker Simulator Zone --- */
+.cracker-stage {
+  background: rgba(20, 10, 30, 0.75);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stage-header h3 {
+  color: #fde68a;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.stage-header p {
+  color: #c4b5fd;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.cracker-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.cracker-btn {
+  background: rgba(43, 20, 64, 0.8);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: #f3f4f6;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.cracker-btn.active,
+.cracker-btn:hover {
+  background: #f59e0b;
+  color: #000000;
+}
+
+.canvas-placeholder {
+  width: 100%;
+  height: 280px;
+  background: #050209;
+  border: 1px dashed rgba(251, 191, 36, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sky-hint {
+  color: #fbbf24;
+  opacity: 0.6;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* --- Panel 3: Wishes Wall --- */
+.wishes-wall {
+  background: rgba(20, 10, 30, 0.75);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.wall-header h3 {
+  color: #fde68a;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.wall-header p {
+  color: #c4b5fd;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-wish-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.wall-input {
+  background: rgba(14, 6, 22, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.flex-grow {
+  flex: 1;
+  min-width: 250px;
+}
+
+.btn-add {
+  background: #f59e0b;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.wishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.wish-card {
+  background: rgba(37, 16, 56, 0.7);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wish-card h4 {
+  color: #fcd34d;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.wish-card p {
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.wish-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.75rem;
+}
+
+.like-btn {
+  background: transparent;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  color: #fda4af;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+  color: #ef4444;
+}
+
+/* ================= 4. FOOTER ================= */
+.page-footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+
+/* ૧. Royal Gold & Purple (ડિફૉલ્ટ) */
+.live-preview-card.card-royal {
+  background: linear-gradient(145deg, #370c47, #1c0827);
+  border: 2px solid #f59e0b;
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25), inset 0 0 25px rgba(245, 158, 11, 0.1);
+}
+
+/* ૨. Crimson Red & Marigold (દિવાળી લાલ-પીળો રંગ) */
+.live-preview-card.card-crimson {
+  background: linear-gradient(145deg, #5b0612, #260206);
+  border: 2px solid #ef4444;
+  box-shadow: 0 15px 35px rgba(239, 68, 68, 0.3), inset 0 0 25px rgba(245, 158, 11, 0.15);
+}
+
+/* ૩. Midnight Sparkler (ઘેરો નીલો અને સિલ્વર-ગોલ્ડ રંગ) */
+.live-preview-card.card-midnight {
+  background: linear-gradient(145deg, #091a36, #030a17);
+  border: 2px solid #38bdf8;
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.25), inset 0 0 25px rgba(56, 189, 248, 0.1);
+}
+
+
+/* ફુલ-સ્ક્રીન સ્ટેજ કન્ટેનર */
+.fullscreen-cracker-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background: #06020c;
+  overflow: hidden;
+}
+
+/* આખા મોનિટર પર ફેલાતો કેનવાસ */
+.fullscreen-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+/* ટોચ પર તરતી પટ્ટી */
+.floating-cracker-bar {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(22, 11, 35, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1.4rem;
+  border-radius: 20px;
+  max-width: 92vw;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.floating-cracker-bar h3 {
+  font-size: 0.9rem;
+  color: #fcd34d;
+  margin-bottom: 0.4rem;
+}
+
+.cracker-scroll-list {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0.35rem 0;
+  scrollbar-width: thin;
+}
+
+.cracker-chip {
+  background: rgba(45, 20, 68, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cracker-chip:hover {
+  background: rgba(245, 158, 11, 0.25);
+}
+
+.cracker-chip.active {
+  background: #f59e0b;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 0 12px #f59e0b;
+}
+
+.floating-cracker-bar .hint {
+  font-size: 0.75rem;
+  color: #c4b5fd;
+  margin-top: 0.35rem;
+}
