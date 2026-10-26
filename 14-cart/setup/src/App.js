@@ -1,25 +1,25 @@
-import React from 'react'
-import { useGlobalContext } from './context'
+// src/App.js
+import React from 'react';
+import Navbar from './components/Navbar';
+import CartContainer from './components/CartContainer';
+import { useGlobalContext } from './context/context';
 
-// components
-import Navbar from './Navbar'
-import CartContainer from './CartContainer'
-// items
+export default function App() {
+  const { loading } = useGlobalContext();
 
-function App() {
-  // if (loading) {
-  //   return (
-  //     <div className='loading'>
-  //       <h1>Loading...</h1>
-  //     </div>
-  //   )
-  // }
+  // Conditional Rendering: જ્યારે ડેટા ફેચ થતો હોય ત્યારે
+  if (loading) {
+    return (
+      <div className="loading" style={{ textAlign: 'center', marginTop: '5rem' }}>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
   return (
     <main>
       <Navbar />
       <CartContainer />
     </main>
-  )
+  );
 }
-
-export default App
