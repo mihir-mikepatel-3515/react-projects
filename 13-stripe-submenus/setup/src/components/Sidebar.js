@@ -1,36 +1,35 @@
 // src/components/Sidebar.js
-import React, { useState } from 'react';
-import { SUBMENU_LINKS } from '../data/stripeData'; // ૧. Data Variable Import
+import React from 'react';
+import { SUBMENU_LINKS } from '../data/stripeData';
+import { useGlobalContext } from '../context/AppContext';
 
 export default function Sidebar() {
-  // ૨. State: Sidebar ખુલ્લો છે કે બંધ તે ટ્રેક કરવા માટે (ટેસ્ટ કરવા અત્યારે true રાખીએ)
-  const [isOpen, setIsOpen] = useState(true);
-
-  // ૩. Function: ક્લોઝ બટન પર ક્લિક થતાં સ્ટેટ false થશે
-  const closeSidebar = () => {
-    setIsOpen(false);
-  };
+  const { isSidebarOpen, closeSidebar } = useGlobalContext();
 
   return (
-    // Conditional Rendering: જો isOpen true હોય તો 'show' ક્લાસ લાગશે
-    <aside className={`sidebar-wrapper ${isOpen ? 'show' : ''}`}>
+    <aside className={`sidebar-wrapper ${isSidebarOpen ? 'show' : ''}`}>
       <div className="sidebar">
-        {/* Event Handling: onClick પર closeSidebar કોલ થશે */}
         <button type="button" className="close-btn" onClick={closeSidebar}>
           ✕
         </button>
 
-        {/* ૪. Dynamic UI: .map() વડે લૂપિંગ અને Lists & Keys */}
         <div className="sidebar-links">
           {SUBMENU_LINKS.map((item, index) => {
-            const { page, links } = item; // Destructuring
-
+            const { page, links } = item;
             return (
               <article key={index}>
                 <h4>{page}</h4>
                 <div className="sidebar-sublinks">
                   {links.map((link, idx) => (
-                    <a key={idx} href={link.url}>
+                    <a
+                      key={idx}
+                      href={link.url}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        alert(`Mobile Navigation: ${page} -> ${link.label}`);
+                        closeSidebar();
+                      }}
+                    >
                       {link.icon} {link.label}
                     </a>
                   ))}

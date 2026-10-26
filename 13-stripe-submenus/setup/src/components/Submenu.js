@@ -1,17 +1,18 @@
 // src/components/Submenu.js
 import React, { useState, useRef, useEffect } from 'react';
+import { useGlobalContext } from '../context/AppContext';
 
-export default function Submenu({ isOpen, location, subpage }) {
-  // 1. Ref: DOM element access karva mate
+export default function Submenu() {
+  const {
+    isSubmenuOpen,
+    location,
+    subpage: { page, links },
+    closeSubmenu, // Context માંથી closeSubmenu લીધું
+  } = useGlobalContext();
+
   const container = useRef(null);
-
-  // 2. State: Kitla links chhe te mujab grid columns badlavva
   const [columns, setColumns] = useState('col-2');
 
-  // Destructuring
-  const { page, links } = subpage || { page: '', links: [] };
-
-  // 3. Lifecycle / Effect: Jyare location athva links badlay tyare positioning set karvi
   useEffect(() => {
     if (links && links.length > 0) {
       setColumns(`col-${links.length > 3 ? 4 : links.length}`);
@@ -27,10 +28,11 @@ export default function Submenu({ isOpen, location, subpage }) {
   }, [location, links]);
 
   return (
-    // Conditional Rendering: jo isOpen true hoy toh j 'show' class lagse
+    // onMouseLeave ઉમેરવાથી માઉસ બહાર નીકળતાં જ સબમેનુ બંધ થશે
     <aside
-      className={`submenu ${isOpen ? 'show' : ''}`}
+      className={`submenu ${isSubmenuOpen ? 'show' : ''}`}
       ref={container}
+      onMouseLeave={closeSubmenu}
     >
       <section>
         <h4>{page}</h4>
@@ -38,7 +40,15 @@ export default function Submenu({ isOpen, location, subpage }) {
           {links?.map((link, index) => {
             const { label, icon, url } = link;
             return (
-              <a key={index} href={url}>
+              <a 
+                key={index} 
+                href={url}
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert(`Navigating to ${page} -> ${label}`);
+                  closeSubmenu();
+                }}
+              >
                 <span>{icon}</span>
                 <span>{label}</span>
               </a>

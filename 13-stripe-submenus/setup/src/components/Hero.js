@@ -1,7 +1,7 @@
 // src/components/Hero.js
 import React from 'react';
+import { useGlobalContext } from '../context/AppContext';
 
-// ૧. Variable: હીરો સેક્શનનો કન્ટેન્ટ ડેટા
 const HERO_CONTENT = {
   title: 'Financial infrastructure for the internet',
   subtitle:
@@ -12,23 +12,14 @@ const HERO_CONTENT = {
   cardNumber: '•••• •••• •••• 4242',
 };
 
-export default function Hero({ onCloseSubmenu }) {
-  // ૨. Destructuring: ડેટામાંથી વેરિએબલ્સ છૂટા પાડવા
+export default function Hero() {
+  const { closeSubmenu } = useGlobalContext();
   const { title, subtitle, ctaText, cardHolder, cardExpiry, cardNumber } = HERO_CONTENT;
 
-  // ૩. Function: હીરો સેક્શન પર માઉસ આવે ત્યારે સબમેનુ ક્લોઝ કરવાનો હેન્ડલર
-  const handleHeroHover = () => {
-    if (onCloseSubmenu) {
-      onCloseSubmenu();
-    }
-  };
-
   return (
-    // Event Handling: onMouseOver થતાં સબમેનુ બંધ થશે
-    <section className="hero" onMouseOver={handleHeroHover}>
+    <section className="hero" onMouseOver={closeSubmenu}>
       <div className="hero-center">
         
-        {/* Left Side Info */}
         <article className="hero-info">
           <h1>{title}</h1>
           <p>{subtitle}</p>
@@ -37,7 +28,6 @@ export default function Hero({ onCloseSubmenu }) {
           </button>
         </article>
 
-        {/* Right Side Phone & Card Graphic */}
         <article className="hero-images">
           <div className="phone-mockup">
             <div className="phone-screen">

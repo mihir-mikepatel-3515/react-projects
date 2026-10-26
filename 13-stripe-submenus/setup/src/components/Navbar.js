@@ -1,30 +1,27 @@
 // src/components/Navbar.js
 import React from 'react';
 import { SUBMENU_LINKS } from '../data/stripeData';
+import { useGlobalContext } from '../context/AppContext';
 
-export default function Navbar({ onOpenSidebar, onOpenSubmenu, onCloseSubmenu }) {
-  
+export default function Navbar() {
+  const { openSidebar, openSubmenu, closeSubmenu, isSubmenuOpen, subpage } = useGlobalContext();
+
   const handleHoverLink = (e) => {
     const pageText = e.target.textContent.trim();
     const btnCoordinates = e.target.getBoundingClientRect();
     const center = (btnCoordinates.left + btnCoordinates.right) / 2;
     const bottom = btnCoordinates.bottom - 3;
 
-    if (onOpenSubmenu) {
-      onOpenSubmenu(pageText, { center, bottom });
-    }
+    openSubmenu(pageText, { center, bottom });
   };
 
   const handleNavMouseOver = (e) => {
     if (!e.target.classList.contains('link-btn')) {
-      if (onCloseSubmenu) {
-        onCloseSubmenu();
-      }
+      closeSubmenu();
     }
   };
 
   return (
-    // આ લાઇન પર onMouseOver={handleNavMouseOver} ઉમેરો જેથી warning જતી રહેશે:
     <nav className="nav" onMouseOver={handleNavMouseOver}>
       <div className="nav-center">
         
@@ -33,7 +30,8 @@ export default function Navbar({ onOpenSidebar, onOpenSubmenu, onCloseSubmenu })
           <button 
             type="button" 
             className="btn toggle-btn" 
-            onClick={onOpenSidebar}
+            onClick={openSidebar}
+            aria-label="Toggle navigation drawer"
           >
             ☰
           </button>
@@ -42,12 +40,17 @@ export default function Navbar({ onOpenSidebar, onOpenSubmenu, onCloseSubmenu })
         <ul className="nav-links">
           {SUBMENU_LINKS.map((item, index) => {
             const { page } = item;
+            const isCurrentActive = isSubmenuOpen && subpage.page === page;
+
             return (
               <li key={index}>
                 <button
                   type="button"
-                  className="link-btn"
+                  className={`link-btn ${isCurrentActive ? 'active' : ''}`}
                   onMouseOver={handleHoverLink}
+                  onFocus={handleHoverLink}
+                  aria-haspopup="true"
+                  aria-expanded={isCurrentActive}
                 >
                   {page}
                 </button>
